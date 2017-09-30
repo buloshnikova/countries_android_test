@@ -35,7 +35,7 @@
     tools:text="Country Name"/>
 
 <TextView
-    android:id="@+id/region_tv"
+    android:id="@+id/extra_details_region_tv"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textAppearance="@style/TextAppearance.AppCompat.Body1"

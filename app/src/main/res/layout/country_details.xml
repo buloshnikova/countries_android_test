@@ -6,7 +6,19 @@
     <ImageView
     android:id="@+id/extra_details_flag_wv"
     android:layout_width="match_parent"
-    android:layout_height="200dp"/>
+    android:layout_height="10dp"/>
+
+    <TextView
+        android:id="@+id/extra_details_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/big_text_size"
+        android:maxLines="2"
+        android:minLines="1"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"/>
 
     <include
         android:id="@+id/extra_details"

@@ -8,6 +8,8 @@
 
     <dimen name="countries_text_size">16sp</dimen>
     <dimen name="small_text_size">8sp</dimen>
+    <dimen name="big_text_size">28sp</dimen>
+    <dimen name="medium_text_size">20sp</dimen>
     <dimen name="countries_temperature_space">4dp</dimen>
 
     <dimen name="today_countries_list_item_vertical_padding">16dp</dimen>

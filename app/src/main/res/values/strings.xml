@@ -4,10 +4,13 @@
 
     <string name="content_authority">com.innazis.continents.continents</string>
 
+    <string name="region_label">Region</string>
+    <string name="subregion_label">Subregion</string>
+    <string name="population_label">Population</string>
+    <string name="area_label">Area</string>
+    <string name="currency_label">Currencies</string>
+    <string name="language_label">Languages</string>
+
     <string name="today">Today</string>
     <string name="tomorrow">Tomorrow</string>
-    <!-- Date format -->
-    <string name="format_full_friendly_date">
-        <xliff:g id="month">%1$s</xliff:g>, <xliff:g id="day">%2$s</xliff:g>
-    </string>
 </resources>

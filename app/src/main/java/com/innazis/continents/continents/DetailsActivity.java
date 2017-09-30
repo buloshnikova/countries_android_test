@@ -7,12 +7,13 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
-import android.webkit.WebView;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.innazis.continents.continents.data.CountriesContract;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by inna on 30/09/2017.
@@ -48,6 +49,13 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
     private Uri uri;
 
     ImageView flagImageView;
+    TextView countryNameTextView;
+    TextView regionTextView;
+    TextView subregionTextView;
+    TextView populationTextView;
+    TextView areaTextView;
+    TextView currencyTextView;
+    TextView languageTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +63,14 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
         setContentView(R.layout.country_details);
 
         flagImageView = (ImageView) findViewById(R.id.extra_details_flag_wv);
+        countryNameTextView = (TextView) findViewById(R.id.extra_details_name_tv);
+        regionTextView = (TextView) findViewById(R.id.extra_details_region_tv);
+        subregionTextView = (TextView) findViewById(R.id.extra_details_subregion_tv);
+        populationTextView = (TextView) findViewById(R.id.extra_details_population_tv);
+        areaTextView = (TextView) findViewById(R.id.extra_details_area_tv);
+        currencyTextView = (TextView) findViewById(R.id.extra_details_currency_tv);
+        languageTextView = (TextView) findViewById(R.id.extra_details_language_tv);
+
         uri = getIntent().getData();
         if (uri == null) throw new NullPointerException("NULL URI for DetailsActivity");
 
@@ -96,7 +112,27 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
 
         String flag = data.getString(INDEX_COLUMN_FLAG);
         Glide.with(this).load(flag).into(flagImageView);
-        //int weatherId = data.getInt(INDEX_WEATHER_CONDITION_ID);
+
+        String name = data.getString(INDEX_COLUMN_NAME);
+        countryNameTextView.setText(name);
+
+        String region = data.getString(INDEX_COLUMN_REGION);
+        regionTextView.setText(region);
+
+        String subregion = data.getString(INDEX_COLUMN_SUBREGION);
+        subregionTextView.setText(subregion);
+
+        String population = String.valueOf(data.getInt(INDEX_COLUMN_POPULATION));
+        populationTextView.setText(population);
+
+        String area = String.valueOf(data.getInt(INDEX_COLUMN_AREA));
+        areaTextView.setText(area);
+
+        String currency = data.getString(INDEX_COLUMN_CURRENCIES);
+        currencyTextView.setText(currency);
+
+        String language = data.getString(INDEX_COLUMN_LANGUAGES);
+        languageTextView.setText(language);
     }
 
     @Override

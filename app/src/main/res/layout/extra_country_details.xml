@@ -22,57 +22,117 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5"/>
 
-        <!--&lt;!&ndash; Humidity label &ndash;&gt;-->
-        <!--<TextView-->
-            <!--android:id="@+id/humidity_label"-->
-            <!--style="@style/DetailLabel"-->
-            <!--android:text="@string/humidity_label"-->
-            <!--app:layout_constraintBottom_toTopOf="@+id/pressure_label"-->
-            <!--app:layout_constraintLeft_toLeftOf="@+id/extra_details"-->
-            <!--app:layout_constraintTop_toTopOf="@+id/extra_details"-->
-            <!--app:layout_constraintVertical_bias="0.33"/>-->
+        <!-- Region label -->
+        <TextView
+            android:id="@+id/region_label"
+            style="@style/DetailLabel"
+            android:text="@string/region_label"
+            app:layout_constraintBottom_toTopOf="@+id/subregion_label"
+            app:layout_constraintLeft_toLeftOf="@+id/extra_details"
+            app:layout_constraintTop_toTopOf="@+id/extra_details"
+            app:layout_constraintVertical_bias="0.072" />
 
-        <!--&lt;!&ndash; Humidity measurement &ndash;&gt;-->
-        <!--<TextView-->
-            <!--android:id="@+id/humidity"-->
-            <!--style="@style/ExtraWeatherMeasurement"-->
-            <!--app:layout_constraintBottom_toBottomOf="@+id/humidity_label"-->
-            <!--app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"-->
-            <!--tools:text="38%"/>-->
+        <!-- Region -->
+        <TextView
+            android:id="@+id/extra_details_region_tv"
+            style="@style/ExtraLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/region_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="Region"/>
 
-        <!--&lt;!&ndash; Pressure label &ndash;&gt;-->
-        <!--<TextView-->
-            <!--android:id="@+id/pressure_label"-->
-            <!--style="@style/DetailLabel"-->
-            <!--android:text="@string/pressure_label"-->
-            <!--app:layout_constraintBottom_toBottomOf="@+id/extra_details"-->
-            <!--app:layout_constraintLeft_toLeftOf="@+id/extra_details"-->
-            <!--app:layout_constraintTop_toTopOf="@+id/extra_details"/>-->
+        <!-- Subregion label -->
+        <TextView
+            android:id="@+id/subregion_label"
+            style="@style/DetailLabel"
+            android:text="@string/subregion_label"
+            app:layout_constraintBottom_toBottomOf="@+id/extra_details"
+            app:layout_constraintLeft_toLeftOf="@+id/extra_details"
+            app:layout_constraintTop_toTopOf="@+id/extra_details"
+            app:layout_constraintVertical_bias="0.112" />
 
-        <!--&lt;!&ndash; Pressure measurement &ndash;&gt;-->
-        <!--<TextView-->
-            <!--android:id="@+id/pressure"-->
-            <!--style="@style/ExtraWeatherMeasurement"-->
-            <!--app:layout_constraintBottom_toBottomOf="@+id/pressure_label"-->
-            <!--app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"-->
-            <!--tools:text="995 hPa"/>-->
+        <!-- Subregion -->
+        <TextView
+            android:id="@+id/extra_details_subregion_tv"
+            style="@style/ExtraLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/subregion_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="Subregion"/>
 
-        <!--&lt;!&ndash; Wind label &ndash;&gt;-->
-        <!--<TextView-->
-            <!--android:id="@+id/wind_label"-->
-            <!--style="@style/DetailLabel"-->
-            <!--android:text="@string/wind_label"-->
-            <!--app:layout_constraintBottom_toBottomOf="@+id/extra_details"-->
-            <!--app:layout_constraintLeft_toLeftOf="@+id/extra_details"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/pressure_label"-->
-            <!--app:layout_constraintVertical_bias="0.65999997"/>-->
+        <!-- Population label -->
+        <TextView
+            android:id="@+id/population_label"
+            style="@style/DetailLabel"
+            android:text="@string/population_label"
+            app:layout_constraintBottom_toBottomOf="@+id/extra_details"
+            app:layout_constraintLeft_toLeftOf="@+id/extra_details"
+            app:layout_constraintTop_toBottomOf="@+id/subregion_label"
+            app:layout_constraintVertical_bias="0.07" />
 
-        <!--&lt;!&ndash; Wind measurement &ndash;&gt;-->
-        <!--<TextView-->
-            <!--android:id="@+id/wind_measurement"-->
-            <!--style="@style/ExtraWeatherMeasurement"-->
-            <!--app:layout_constraintBottom_toBottomOf="@+id/wind_label"-->
-            <!--app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"-->
-            <!--tools:text="4km/h NW"/>-->
+        <!-- Population -->
+        <TextView
+            android:id="@+id/extra_details_population_tv"
+            style="@style/ExtraLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/population_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="Population"/>
+
+        <!-- Area label -->
+        <TextView
+            android:id="@+id/area_label"
+            style="@style/DetailLabel"
+            android:text="@string/area_label"
+            app:layout_constraintBottom_toBottomOf="@+id/extra_details"
+            app:layout_constraintLeft_toLeftOf="@+id/extra_details"
+            app:layout_constraintTop_toBottomOf="@+id/population_label"
+            app:layout_constraintVertical_bias="0.15" />
+
+        <!-- Area -->
+        <TextView
+            android:id="@+id/extra_details_area_tv"
+            style="@style/ExtraLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/area_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="Area"/>
+
+        <!-- Currency label -->
+        <TextView
+            android:id="@+id/currency_label"
+            style="@style/DetailLabel"
+            android:text="@string/currency_label"
+            app:layout_constraintBottom_toBottomOf="@+id/extra_details"
+            app:layout_constraintLeft_toLeftOf="@+id/extra_details"
+            app:layout_constraintTop_toBottomOf="@+id/area_label"
+            app:layout_constraintVertical_bias="0.246" />
+
+        <!-- Currency -->
+        <TextView
+            android:id="@+id/extra_details_currency_tv"
+            style="@style/ExtraLabel"
+            android:maxLines="3"
+            android:minLines="1"
+            app:layout_constraintTop_toTopOf="@+id/currency_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="Area"/>
+
+        <!-- Language label -->
+        <TextView
+            android:id="@+id/language_label"
+            style="@style/DetailLabel"
+            android:text="@string/language_label"
+            app:layout_constraintBottom_toBottomOf="@+id/extra_details"
+            app:layout_constraintLeft_toLeftOf="@+id/extra_details"
+            app:layout_constraintTop_toBottomOf="@+id/currency_label"
+            app:layout_constraintVertical_bias="0.443" />
+
+        <!-- Language -->
+        <TextView
+            android:id="@+id/extra_details_language_tv"
+            style="@style/ExtraLabel"
+            android:maxLines="3"
+            android:minLines="1"
+            app:layout_constraintTop_toTopOf="@+id/language_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="Language"/>
+
 
 </android.support.constraint.ConstraintLayout>

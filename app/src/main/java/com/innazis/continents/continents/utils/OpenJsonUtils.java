@@ -24,6 +24,10 @@ public class OpenJsonUtils {
     private static final String JSON_CURRENCIES = "currencies";
     private static final String JSON_LANGUAGES = "languages";
     private static final String JSON_FLAG = "flag";
+    private static final String JSON_CURRENCY_CODE = "code";
+    private static final String JSON_CURRENCY_NAME = "name";
+    private static final String JSON_LANGUAGE_CODE = "iso639_2";
+    private static final String JSON_LANGUAGE_NAME = "name";
 
     public static ContentValues[] getContentValuesFromJson(Context context, String jsonStr)
             throws JSONException {
@@ -45,8 +49,8 @@ public class OpenJsonUtils {
             String subregion;
             int population;
             int area;
-            String currencies;
-            String languages;
+            String currencies = "";
+            String languages = "";
             String flag;
 
             dateTimeMillis = normalizedUtcStartDay + DateUtils.DAY_IN_MILLIS * i;
@@ -59,14 +63,22 @@ public class OpenJsonUtils {
             population = sortedJO.optInt(JSON_POPULATION, 0);
             area = sortedJO.optInt(JSON_AREA, 0);
 
-            // should be a loop to run through the whole array of currencies
-            currencies = sortedJO.getJSONArray(JSON_CURRENCIES).get(0).toString();
-            // same as currencies
-            languages = sortedJO.getJSONArray(JSON_LANGUAGES).get(0).toString();
-            flag = sortedJO.getString(JSON_FLAG);
+            //currencies = sortedJO.getJSONArray(JSON_CURRENCIES).get(0).toString();
+            JSONArray currenciesArr = sortedJO.getJSONArray(JSON_CURRENCIES);
+            for (int c = 0; c < currenciesArr.length(); c++) {
+                JSONObject obj = currenciesArr.getJSONObject(c);
+                currencies += obj.optString(JSON_CURRENCY_CODE, "") + "";
+                currencies += "(" + obj.optString(JSON_CURRENCY_NAME, " ") + ") ";
+            }
+            //languages = sortedJO.getJSONArray(JSON_LANGUAGES).get(0).toString();
+            JSONArray languagesArr = sortedJO.getJSONArray(JSON_LANGUAGES);
+            for (int l = 0; l < languagesArr.length(); l++) {
+                JSONObject obj = languagesArr.getJSONObject(l);
+                languages += obj.optString(JSON_LANGUAGE_CODE, "") + "";
+                languages += "(" + obj.optString(JSON_LANGUAGE_NAME, " ") + ") ";
+            }
 
-            //TODO: try this later
-            //JSONObject currencybject = sortedJO.getJSONArray(JSON_CURRENCIES).getJSONObject(0);
+            flag = sortedJO.getString(JSON_FLAG);
 
             ContentValues countryValues = new ContentValues();
             countryValues.put(CountriesContract.CountryEntry.COLUMN_DATE, dateTimeMillis);
