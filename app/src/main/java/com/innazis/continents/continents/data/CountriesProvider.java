@@ -18,6 +18,7 @@ import com.innazis.continents.continents.utils.CountriesDateUtils;
 public class CountriesProvider extends ContentProvider {
     public static final int CODE_COUNTRIES = 100;
     public static final int CODE_COUNTRY_WITH_ID = 101;
+    public static final int CODE_COUNTRIES_BY_REGION = 102;
 
     private static final UriMatcher sUriMatcher = buildUriMatcher();
     private CountriesDbHelper _openHelper;
@@ -108,6 +109,19 @@ public class CountriesProvider extends ContentProvider {
 
 
             case CODE_COUNTRIES: {
+                cursor = _openHelper.getReadableDatabase().query(
+                        CountriesContract.CountryEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
+
+                break;
+            }
+
+            case CODE_COUNTRIES_BY_REGION: {
                 cursor = _openHelper.getReadableDatabase().query(
                         CountriesContract.CountryEntry.TABLE_NAME,
                         projection,
